@@ -1,0 +1,69 @@
+:root {
+    --first-color: #FFD369; 
+    --second-color: #EEEEEE;
+    --third-color: #393E46; 
+    --fourth-color: #222831; 
+}
+
+* {
+    margin: 0;
+    font-family: 'Winky Rough', sans-serif;
+    background-color: var(--third-color);
+}
+
+.title {
+    text-align: center;
+    background-color: var(--second-color);
+    font-size: 2.986rem;
+    padding: 1rem;
+}
+
+.art-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pixel-box {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid black;
+
+    /* Stops user from dragging out pixel boxes */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.etch-container {
+    display: inline-block;
+    border: 1.5rem solid var(--first-color);
+    border-radius: 20px;
+}
+
+.big-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Buttons */
+
+.controls {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.clear-button, .small-button, .medium-button, .large-button {
+    font-size: 2rem;
+    padding: 0.1rem 0.5rem;
+    color: var(--second-color);
+    border: 0.4rem solid var(--first-color);
+    border-radius: 500px;
+}
+
+.clear-button:hover, .small-button:hover, .medium-button:hover, .large-button:hover {
+    font-size: 2.3rem;
+    border: 0.4rem solid var(--second-color);
+    color: var(--first-color);
+}
