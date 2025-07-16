@@ -1,6 +1,18 @@
 const etchContainer = document.querySelector(".etch-container")
 function createGrid(size)
 {
+    if(size == 16)
+    {
+        document.documentElement.style.setProperty('--pixel-size', '0.75rem');
+    }
+    else if(size == 24)
+    {
+        document.documentElement.style.setProperty('--pixel-size', '0.5rem');
+    }
+    else if(size == 32)
+    {
+        document.documentElement.style.setProperty('--pixel-size', '0.375rem');
+    }
     for (let i = 0; i < size; i++)
     {
         const artContain = document.createElement("div");
@@ -13,13 +25,19 @@ function createGrid(size)
         }
         etchContainer.appendChild(artContain);
     }
+    // Colour Changes
+
+    const artContainer = document.querySelector(".art-container");
+    const pixelBox = document.querySelectorAll(".pixel-box");
+
+    pixelBox.forEach(function(box)
+    {
+        box.addEventListener("mouseover", changeColor);
+        box.addEventListener("mousedown", changeColor);
+    });
 };
 
 createGrid(16);
-
-const artContainer = document.querySelector(".art-container");
-
-const pixelBox = document.querySelectorAll(".pixel-box");
 
 // Tracking Users Mouse State
 let mouseDown = false;
@@ -34,14 +52,6 @@ document.addEventListener("mouseup", function()
     mouseDown = false;
 });
 
-// Colour Changes
-
-pixelBox.forEach(function(box)
-{
-    box.addEventListener("mouseover", changeColor);
-    box.addEventListener("mousedown", changeColor);
-});
-
 function changeColor(event)
 {
     if(mouseDown == true || event.type == "mousedown")
@@ -52,11 +62,13 @@ function changeColor(event)
 }
 
 // Program Button to Clear Current Work
+
 const clearButton = document.querySelector(".clear-button");
 clearButton.addEventListener("click", clearBoard)
 
 function clearBoard(event)
 {
+    const pixelBox = document.querySelectorAll(".pixel-box");
     pixelBox.forEach(function (box)
     {
         box.style.backgroundColor = "white";
@@ -70,6 +82,12 @@ const largeButton = document.querySelector(".large-button");
 smallButton.addEventListener("click", function(){
     recreateGrid(16);
 });
+mediumButton.addEventListener("click", function(){
+    recreateGrid(24);
+});
+largeButton.addEventListener("click", function(){
+    recreateGrid(32);
+});
 
 // Function to reset grid size
 function recreateGrid(size)
@@ -80,4 +98,5 @@ function recreateGrid(size)
     {
         art.remove();
     });
+    createGrid(size);
 }
