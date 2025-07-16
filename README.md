@@ -1,6 +1,6 @@
 # Etch-a-Sketch
 
-<img width="888" height="787" alt="etch-a-sketch" src="https://github.com/user-attachments/assets/b48941d6-8901-46e1-bb07-d5ad91833aed" />
+<img width="444" height="393.5" alt="etch-a-sketch" src="https://github.com/user-attachments/assets/b48941d6-8901-46e1-bb07-d5ad91833aed" />
 
 Express your creativity with this Etch-a-Sketch inspired art tool
 
